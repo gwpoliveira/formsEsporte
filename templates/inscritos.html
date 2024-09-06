@@ -1,0 +1,36 @@
+<!-- templates/inscritos.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Relação de Inscritos</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nível</th>
+                <th>Série</th>
+                <th>Idade</th>
+                <th>Unidade</th>
+                <th>Responsável</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inscrito in inscritos %}
+            <tr>
+                <td>{{ inscrito.nome }}</td>
+                <td>{{ inscrito.nivel }}</td>
+                <td>{{ inscrito.serie }}</td>
+                <td>{{ inscrito.idade }}</td>
+                <td>{{ inscrito.unidade }}</td>
+                <td>{{ inscrito.responsavel }}</td>
+                <td>{{ inscrito.telefone }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Botão para exportar -->
+    <a href="{% url 'exportar_inscritos_excel' %}" class="btn btn-success">Baixar Inscritos em Excel</a>
+</div>
+{% endblock %}

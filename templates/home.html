@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Inscrição para Atividades Esportivas</h2>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="row g-3">
+                <!-- Nome -->
+                
+                <div class="col-md-6">
+                    <label for="{{ form.nome.id_for_label }}" class="form-label">Nome</label>
+                    {{ form.nome|attr:"class:form-control" }}
+                </div>
+                
+                <!-- Nível -->
+                <div class="col-md-6">
+                    <label for="{{ form.nivel.id_for_label }}" class="form-label">Nível</label>
+                    {{ form.nivel|add_class:"form-control" }}
+                </div>
+                
+                <!-- Série -->
+                <div class="col-md-6">
+                    <label for="{{ form.serie.id_for_label }}" class="form-label">Série</label>
+                    {{ form.serie|add_class:"form-control" }}
+                </div>
+                
+                <!-- Idade -->
+                <div class="col-md-6">
+                    <label for="{{ form.idade.id_for_label }}" class="form-label">Idade</label>
+                    {{ form.idade|add_class:"form-control" }}
+                </div>
+
+                <!-- Unidade -->
+                <div class="col-md-6">
+                    <label for="{{ form.unidade.id_for_label }}" class="form-label">Unidade</label>
+                    {{ form.unidade|add_class:"form-select" }}
+                </div>
+
+                <!-- Responsável -->
+                <div class="col-md-6">
+                    <label for="{{ form.responsavel.id_for_label }}" class="form-label">Responsável</label>
+                    {{ form.responsavel|add_class:"form-control" }}
+                </div>
+
+                <!-- Telefone/WhatsApp -->
+                <div class="col-md-6">
+                    <label for="{{ form.telefone.id_for_label }}" class="form-label">Telefone/WhatsApp</label>
+                    {{ form.telefone|add_class:"form-control" }}
+                </div>
+            </div>
+
+            <!-- Atividades -->
+            <div class="mt-4">
+                <label for="{{ form.atividades.id_for_label }}" class="form-label">Escolha até 3 atividades</label>
+                {{ form.atividades }}  <!-- Isso já deve funcionar corretamente após as mudanças -->
+            </div>
+
+            <!-- Botão Enviar -->
+            <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Enviar Inscrição</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

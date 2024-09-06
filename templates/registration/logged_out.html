@@ -1,0 +1,10 @@
+<!-- templates/registration/logged_out.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Você saiu da sua conta!</h2>
+    <p class="text-center">
+        <a href="{% url 'login' %}">Clique aqui</a> para fazer login novamente.
+    </p>
+</div>
+{% endblock %}
