@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-nid3&awl3(aghc(^v0t_ti^y=-@_#s8-&0zyhc7zoug5*$74ee
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.0', 'formsesporte.grupomagister.online']
 
 
 # Application definition
