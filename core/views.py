@@ -9,7 +9,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 @login_required
 def lista_inscritos(request):
     inscritos_list = FormularioEsporte.objects.all()  # Obtém todos os inscritos
-    paginator = Paginator(inscritos_list, 10)  # Pagina com 10 inscritos por página
+    paginator = Paginator(inscritos_list, 30)  # Pagina com 10 inscritos por página
 
     page = request.GET.get('page')  # Obtém o número da página
     try:
