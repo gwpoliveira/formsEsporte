@@ -27,3 +27,11 @@ h2 {
     font-weight: bold;
     color: #333;
 }
+
+.nav-item form {
+    margin-bottom: 0;
+}
+.nav-item button {
+    padding: 0;
+    margin: 0;
+}

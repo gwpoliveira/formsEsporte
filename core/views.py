@@ -4,12 +4,23 @@ from .models import FormularioEsporte
 from .forms import FormularioEsporteForm
 import pandas as pd
 from django.http import HttpResponse
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 @login_required
 def lista_inscritos(request):
-    inscritos = FormularioEsporte.objects.all()
+    inscritos_list = FormularioEsporte.objects.all()  # Obtém todos os inscritos
+    paginator = Paginator(inscritos_list, 10)  # Pagina com 10 inscritos por página
+
+    page = request.GET.get('page')  # Obtém o número da página
+    try:
+        inscritos = paginator.page(page)
+    except PageNotAnInteger:
+        inscritos = paginator.page(1)  # Se a página não for um inteiro, mostra a primeira página
+    except EmptyPage:
+        inscritos = paginator.page(paginator.num_pages)  # Se a página estiver fora do intervalo, mostra a última página
+
     return render(request, 'inscritos.html', {'inscritos': inscritos})
+
 
 def home(request):
     if request.method == 'POST':
