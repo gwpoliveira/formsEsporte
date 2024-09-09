@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'ico/favicon.ico' %}" type="image/x-icon">
     <title>Formulário de Esportes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -12,50 +13,50 @@
     <header class="bg-dark text-white py-3">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <h1 class="text-center">Instituto Magister</h1>
+                <img src="{% static 'img/logowhite.png' %}" alt="Logo da Instituição" class="mb-4" style="max-width: 200px;">
                 <!-- Menu de Navegação -->
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="https://institutomagisterpi.com.br" target="_blank">
-            <i class="bi bi-house-door-fill"></i> Home Instituto
-        </a>
-        <!-- Botão Sanduíche -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{% url 'home' %}">
-                        <i class="bi bi-people-fill"></i> Ficha de Inscrição
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{% url 'lista_inscritos' %}">
-                        <i class="bi bi-people-fill"></i> Inscritos
-                    </a>
-                </li>
-                <!-- Mostrar Logout se o usuário estiver autenticado -->
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <form method="post" action="{% url 'logout' %}" class="d-inline">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-link nav-link text-white" style="padding: 0;">
-                                <i class="bi bi-box-arrow-left"></i> Logout
-                            </button>
-                        </form>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'login' %}">
-                            <i class="bi bi-box-arrow-in-right"></i> Login
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="https://institutomagisterpi.com.br" target="_blank">
+                            <i class="bi bi-house-door-fill"></i> Home Instituto
                         </a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-</nav>
+                        <!-- Botão Sanduíche -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{% url 'home' %}">
+                                        <i class="bi bi-people-fill"></i> Ficha de Inscrição
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{% url 'lista_inscritos' %}">
+                                        <i class="bi bi-people-fill"></i> Inscritos
+                                    </a>
+                                </li>
+                                <!-- Mostrar Logout se o usuário estiver autenticado -->
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <form method="post" action="{% url 'logout' %}" class="d-inline">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-link nav-link text-white" style="padding: 0;">
+                                                <i class="bi bi-box-arrow-left"></i> Logout
+                                            </button>
+                                        </form>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="{% url 'login' %}">
+                                            <i class="bi bi-box-arrow-in-right"></i> Login
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
 
             </div>
         </div>

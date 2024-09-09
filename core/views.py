@@ -26,8 +26,8 @@ def home(request):
     if request.method == 'POST':
         form = FormularioEsporteForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('home')
+            form.save()  # Salva o formulário
+            return redirect('success')  # Redireciona para a página de sucesso
     else:
         form = FormularioEsporteForm()
 
@@ -70,3 +70,8 @@ def exportar_inscritos_excel(request):
     df.to_excel(response, index=False)
 
     return response
+
+def success_view(request):
+    return render(request, 'success.html')
+
+
