@@ -60,8 +60,16 @@
 
             <!-- Botão Enviar -->
             <div class="d-grid gap-2 mt-4">
-                <button type="submit" class="btn btn-primary btn-lg">Enviar Inscrição</button>
+                <button id="submitButton" type="submit" class="btn btn-primary btn-lg">Enviar Inscrição</button>
             </div>
         </form>
     </div>
+    
+    <script>
+    // Para desabilitar o botão
+    document.getElementById("submitButton").disabled = true;
+
+    // Para habilitar o botão
+    // document.getElementById("submitButton").disabled = false;
+    </script>
 {% endblock %}
